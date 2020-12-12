@@ -40,6 +40,12 @@
     },
     "default": {
       "tags": []
+    },
+    "types": {
+      "tags": []
+    },
+    "testing-utilities": {
+      "tags": []
     }
   }
 }

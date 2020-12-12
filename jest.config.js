@@ -6,5 +6,7 @@ module.exports = {
     '<rootDir>/apps/token',
     '<rootDir>/apps/webhook',
     '<rootDir>/apps/default',
+    '<rootDir>/libs/types',
+    '<rootDir>/libs/testing-utilities',
   ],
 };
