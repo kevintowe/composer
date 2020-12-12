@@ -1,8 +1,393 @@
 {
   "version": 2,
-
-  "projects": {},
+  "projects": {
+    "oauth": {
+      "root": "apps/oauth",
+      "sourceRoot": "apps/oauth/src",
+      "projectType": "application",
+      "prefix": "oauth",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/oauth",
+            "main": "apps/oauth/src/main.ts",
+            "tsConfig": "apps/oauth/tsconfig.app.json",
+            "assets": [
+              "apps/oauth/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/oauth/src/environments/environment.ts",
+                  "with": "apps/oauth/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "oauth:build"
+          }
+        },
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/oauth/tsconfig.app.json",
+              "apps/oauth/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/oauth/**/*"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/oauth"
+          ],
+          "options": {
+            "jestConfig": "apps/oauth/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-client": {
+      "root": "apps/api-client",
+      "sourceRoot": "apps/api-client/src",
+      "projectType": "application",
+      "prefix": "api-client",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/api-client",
+            "main": "apps/api-client/src/main.ts",
+            "tsConfig": "apps/api-client/tsconfig.app.json",
+            "assets": [
+              "apps/api-client/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/api-client/src/environments/environment.ts",
+                  "with": "apps/api-client/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "api-client:build"
+          }
+        },
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/api-client/tsconfig.app.json",
+              "apps/api-client/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/api-client/**/*"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/api-client"
+          ],
+          "options": {
+            "jestConfig": "apps/api-client/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "realm-logic": {
+      "root": "apps/realm-logic",
+      "sourceRoot": "apps/realm-logic/src",
+      "projectType": "application",
+      "prefix": "realm-logic",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/realm-logic",
+            "main": "apps/realm-logic/src/main.ts",
+            "tsConfig": "apps/realm-logic/tsconfig.app.json",
+            "assets": [
+              "apps/realm-logic/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/realm-logic/src/environments/environment.ts",
+                  "with": "apps/realm-logic/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "realm-logic:build"
+          }
+        },
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/realm-logic/tsconfig.app.json",
+              "apps/realm-logic/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/realm-logic/**/*"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/realm-logic"
+          ],
+          "options": {
+            "jestConfig": "apps/realm-logic/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "token": {
+      "root": "apps/token",
+      "sourceRoot": "apps/token/src",
+      "projectType": "application",
+      "prefix": "token",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/token",
+            "main": "apps/token/src/main.ts",
+            "tsConfig": "apps/token/tsconfig.app.json",
+            "assets": [
+              "apps/token/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/token/src/environments/environment.ts",
+                  "with": "apps/token/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "token:build"
+          }
+        },
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/token/tsconfig.app.json",
+              "apps/token/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/token/**/*"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/token"
+          ],
+          "options": {
+            "jestConfig": "apps/token/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "webhook": {
+      "root": "apps/webhook",
+      "sourceRoot": "apps/webhook/src",
+      "projectType": "application",
+      "prefix": "webhook",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/webhook",
+            "main": "apps/webhook/src/main.ts",
+            "tsConfig": "apps/webhook/tsconfig.app.json",
+            "assets": [
+              "apps/webhook/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/webhook/src/environments/environment.ts",
+                  "with": "apps/webhook/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "webhook:build"
+          }
+        },
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/webhook/tsconfig.app.json",
+              "apps/webhook/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/webhook/**/*"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/webhook"
+          ],
+          "options": {
+            "jestConfig": "apps/webhook/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "default": {
+      "root": "apps/default",
+      "sourceRoot": "apps/default/src",
+      "projectType": "application",
+      "prefix": "default",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/default",
+            "main": "apps/default/src/main.ts",
+            "tsConfig": "apps/default/tsconfig.app.json",
+            "assets": [
+              "apps/default/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/default/src/environments/environment.ts",
+                  "with": "apps/default/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "default:build"
+          }
+        },
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/default/tsconfig.app.json",
+              "apps/default/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/default/**/*"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/default"
+          ],
+          "options": {
+            "jestConfig": "apps/default/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "defaultCollection": "@nrwl/nest"
+  },
+  "defaultProject": "oauth"
 }

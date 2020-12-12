@@ -22,5 +22,24 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "oauth": {
+      "tags": []
+    },
+    "api-client": {
+      "tags": []
+    },
+    "realm-logic": {
+      "tags": []
+    },
+    "token": {
+      "tags": []
+    },
+    "webhook": {
+      "tags": []
+    },
+    "default": {
+      "tags": []
+    }
+  }
 }
