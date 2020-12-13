@@ -8,5 +8,6 @@ module.exports = {
     '<rootDir>/apps/default',
     '<rootDir>/libs/types',
     '<rootDir>/libs/testing-utilities',
+    '<rootDir>/apps/dev-proxy',
   ],
 };

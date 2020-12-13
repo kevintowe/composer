@@ -46,6 +46,9 @@
     },
     "testing-utilities": {
       "tags": []
+    },
+    "dev-proxy": {
+      "tags": []
     }
   }
 }
