@@ -1,5 +1,10 @@
+// THIS LINE MUST RUN FIRST!!!
+if (process.env.NODE_ENV !== 'production')
+  require('dotenv').config({ path: 'apps/dev-proxy/.env' });
+
 import * as express from 'express';
 import * as httpProxy from 'express-http-proxy';
+
 const app = express();
 const host = `http://localhost`;
 
