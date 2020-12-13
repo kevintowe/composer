@@ -1,13 +1,10 @@
 dispatch:
   # Default service
-  - url: /
-    service: composer-Default
-
-  - url: ''
-    service: Default
+  - url: 'composer-intuit.uc.r.appspot.com/'
+    service: default
 
   - url: '*/oauth/*'
-    service: composer-oauth
+    service: oauth
 
   - url: '*/webhook/*'
-    service: composer-webhook
+    service: webhook
