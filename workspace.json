@@ -9,9 +9,7 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/oauth",
             "main": "apps/oauth/src/main.ts",
@@ -49,17 +47,12 @@
               "apps/oauth/tsconfig.app.json",
               "apps/oauth/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/oauth/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/oauth/**/*"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/oauth"
-          ],
+          "outputs": ["coverage/apps/oauth"],
           "options": {
             "jestConfig": "apps/oauth/jest.config.js",
             "passWithNoTests": true
@@ -75,9 +68,7 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/api-client",
             "main": "apps/api-client/src/main.ts",
@@ -115,17 +106,12 @@
               "apps/api-client/tsconfig.app.json",
               "apps/api-client/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/api-client/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/api-client/**/*"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/api-client"
-          ],
+          "outputs": ["coverage/apps/api-client"],
           "options": {
             "jestConfig": "apps/api-client/jest.config.js",
             "passWithNoTests": true
@@ -141,9 +127,7 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/realm-logic",
             "main": "apps/realm-logic/src/main.ts",
@@ -181,17 +165,12 @@
               "apps/realm-logic/tsconfig.app.json",
               "apps/realm-logic/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/realm-logic/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/realm-logic/**/*"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/realm-logic"
-          ],
+          "outputs": ["coverage/apps/realm-logic"],
           "options": {
             "jestConfig": "apps/realm-logic/jest.config.js",
             "passWithNoTests": true
@@ -207,9 +186,7 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/token",
             "main": "apps/token/src/main.ts",
@@ -247,17 +224,12 @@
               "apps/token/tsconfig.app.json",
               "apps/token/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/token/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/token/**/*"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/token"
-          ],
+          "outputs": ["coverage/apps/token"],
           "options": {
             "jestConfig": "apps/token/jest.config.js",
             "passWithNoTests": true
@@ -273,9 +245,7 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/webhook",
             "main": "apps/webhook/src/main.ts",
@@ -313,17 +283,12 @@
               "apps/webhook/tsconfig.app.json",
               "apps/webhook/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/webhook/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/webhook/**/*"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/webhook"
-          ],
+          "outputs": ["coverage/apps/webhook"],
           "options": {
             "jestConfig": "apps/webhook/jest.config.js",
             "passWithNoTests": true
@@ -339,9 +304,7 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/default",
             "main": "apps/default/src/main.ts",
@@ -379,17 +342,12 @@
               "apps/default/tsconfig.app.json",
               "apps/default/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/default/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/default/**/*"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/default"
-          ],
+          "outputs": ["coverage/apps/default"],
           "options": {
             "jestConfig": "apps/default/jest.config.js",
             "passWithNoTests": true
@@ -409,17 +367,12 @@
               "libs/types/tsconfig.lib.json",
               "libs/types/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/types/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/types/**/*"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/types"
-          ],
+          "outputs": ["coverage/libs/types"],
           "options": {
             "jestConfig": "libs/types/jest.config.js",
             "passWithNoTests": true
@@ -439,17 +392,12 @@
               "libs/testing-utilities/tsconfig.lib.json",
               "libs/testing-utilities/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/testing-utilities/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/testing-utilities/**/*"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/testing-utilities"
-          ],
+          "outputs": ["coverage/libs/testing-utilities"],
           "options": {
             "jestConfig": "libs/testing-utilities/jest.config.js",
             "passWithNoTests": true
@@ -465,16 +413,12 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/dev-proxy",
             "main": "apps/dev-proxy/src/main.ts",
             "tsConfig": "apps/dev-proxy/tsconfig.app.json",
-            "assets": [
-              "apps/dev-proxy/src/assets"
-            ]
+            "assets": ["apps/dev-proxy/src/assets"]
           },
           "configurations": {
             "production": {
@@ -503,17 +447,12 @@
               "apps/dev-proxy/tsconfig.app.json",
               "apps/dev-proxy/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/dev-proxy/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/dev-proxy/**/*"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/dev-proxy"
-          ],
+          "outputs": ["coverage/apps/dev-proxy"],
           "options": {
             "jestConfig": "apps/dev-proxy/jest.config.js",
             "passWithNoTests": true
