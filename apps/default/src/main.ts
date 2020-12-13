@@ -1,6 +1,6 @@
 // THIS LINE MUST RUN FIRST!!!
-if (process.env.NODE_ENV !== 'production')
-  require('dotenv').config({ path: 'apps/default/.env' });
+// if (process.env.NODE_ENV !== 'production')
+//   require('dotenv').config({ path: 'apps/default/.env' });
 
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
