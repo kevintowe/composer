@@ -5,22 +5,20 @@ name: Intuit Composer Webhook CI
 
 on:
   push:
-    branches: [ dev ]
-    paths:
-      - 'apps/webhook'
+    branches: [dev]
+    # paths:
+    #   - 'apps/webhook'
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js 12
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12
-    - run: npm ci
-    - run: npm run test webhook
-    - run: npm run build webhook
-
+      - uses: actions/checkout@v2
+      - name: Use Node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm ci
+      - run: npm run test webhook
+      - run: npm run build webhook
