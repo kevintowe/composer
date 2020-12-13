@@ -1,0 +1,13 @@
+dispatch:
+  # Default service
+  - url: /
+    service: composer-Default
+
+  - url: ''
+    service: Default
+
+  - url: '*/oauth/*'
+    service: composer-oauth
+
+  - url: '*/webhook/*'
+    service: composer-webhook
