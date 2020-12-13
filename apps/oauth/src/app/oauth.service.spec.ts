@@ -17,7 +17,7 @@ describe('OauthService', () => {
       }),
     revoke: () =>
       new Promise((resolve, reject) => {
-        resolve();
+        resolve(null);
       }),
   };
 
