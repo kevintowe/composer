@@ -27,10 +27,9 @@ export class TestController {
 }
 
 @Module({
-  // controllers: [OAuthController],
+  controllers: [OAuthController],
   // providers: [OauthService, OAuthProvider, OAuthFacade],
   // exports: [OAuthFacade],
-  controllers: [],
 })
 export class OAuthModule {
   //   static register(config: IntuitConfig): DynamicModule {
