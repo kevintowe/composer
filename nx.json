@@ -49,6 +49,9 @@
     },
     "dev-proxy": {
       "tags": []
+    },
+    "security": {
+      "tags": []
     }
   }
 }

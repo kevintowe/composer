@@ -1,16 +1,16 @@
-import {
-  DynamicModule,
-  Module,
-  Provider,
-  Controller,
-  Get,
-} from '@nestjs/common';
+import { DynamicModule, Module, Provider } from '@nestjs/common';
+import { ClientsModule, ClientProxy, Transport } from '@nestjs/microservices';
 
 import { OAuthController } from './oauth.controller';
 import { OauthService } from './oauth.service';
 import { IntuitOAuthFactory } from './oauth.factory';
-import { OAuthFacade } from './oauth.facade';
-import { IntuitConfig } from '@composer/types';
+
+export interface OAuthConfig {
+  clientId: string;
+  clientSecret: string;
+  redirectUri: string;
+  environment: 'sandbox' | 'production';
+}
 
 const OAuthProvider: Provider<any> = {
   provide: 'IntuitOAuth',
@@ -18,29 +18,29 @@ const OAuthProvider: Provider<any> = {
   inject: ['IntuitConfig'],
 };
 
-@Controller()
-export class TestController {
-  @Get('')
-  test() {
-    return 'hello world!!! water bottle';
-  }
-}
-
 @Module({
   controllers: [OAuthController],
-  // providers: [OauthService, OAuthProvider, OAuthFacade],
-  // exports: [OAuthFacade],
+  providers: [OauthService, OAuthProvider],
 })
 export class OAuthModule {
-  //   static register(config: IntuitConfig): DynamicModule {
-  //     return {
-  //       module: OAuthModule,
-  //       providers: [
-  //         {
-  //           provide: 'IntuitOAuth',
-  //           useValue: IntuitOAuthFactory()(config),
-  //         },
-  //       ],
-  //     };
-  //   }
+  static register(config: OAuthConfig): DynamicModule {
+    return {
+      module: OAuthModule,
+      imports: [
+        ClientsModule.register([
+          {
+            name: 'TokenService',
+            transport: Transport.REDIS,
+            options: { host: 'redis://localhost:6379' },
+          },
+        ]),
+      ],
+      providers: [
+        {
+          provide: 'IntuitOAuth',
+          useValue: IntuitOAuthFactory()(config),
+        },
+      ],
+    };
+  }
 }

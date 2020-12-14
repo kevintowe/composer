@@ -1,21 +1,31 @@
-const instantiationTime = Date.now();
+// THIS LINE MUST RUN FIRST!!!
+if (process.env.NODE_ENV !== 'production')
+  require('dotenv').config({ path: 'apps/oauth/.env' });
 
-import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import { Logger } from '@nestjs/common';
+import { Transport, MicroserviceOptions } from '@nestjs/microservices';
 
-import { AppModule } from './app/app.module';
+import { TokenModule, TokenConfig } from './app/app.module';
 
 const logger = new Logger('Token Main');
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.createMicroservice<MicroserviceOptions>(
+    TokenModule.register(buildTokenConfig()),
+    {
+      transport: Transport.REDIS,
+      options: { url: process.env.CONNECTION_URL || 'redis://localhost:6379' },
+    }
+  );
 
-  const port = process.env.PORT || 3020;
-  await app.listen(port, () => {
-    logger.log(
-      `Token Microservice is listening +${Date.now() - instantiationTime}ms`
-    );
+  app.listen(() => {
+    logger.log(`Token Microservice is listening`);
   });
 }
 
 bootstrap();
+
+function buildTokenConfig(): TokenConfig {
+  return {};
+}

@@ -1,11 +1,19 @@
-import { Module } from '@nestjs/common';
+import { DynamicModule, Module } from '@nestjs/common';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { TokenController } from './token.controller';
+import { TokenService } from './token.service';
+
+export interface TokenConfig {}
 
 @Module({
   imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [TokenController],
+  providers: [TokenService],
 })
-export class AppModule {}
+export class TokenModule {
+  static register(config: TokenConfig): DynamicModule {
+    return {
+      module: TokenModule,
+    };
+  }
+}

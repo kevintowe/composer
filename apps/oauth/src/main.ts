@@ -7,11 +7,11 @@ import { Transport, MicroserviceOptions } from '@nestjs/microservices';
 import { Logger } from '@nestjs/common';
 const logger = new Logger('OAuth Main');
 
-import { OAuthModule } from './app/oauth.module';
+import { OAuthModule, OAuthConfig } from './app/oauth.module';
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
-    OAuthModule,
+    OAuthModule.register(buildConfig()),
     {
       transport: Transport.REDIS,
       options: { url: process.env.CONNECTION_URL || 'redis://localhost:6379' },
@@ -24,3 +24,12 @@ async function bootstrap() {
 }
 
 bootstrap();
+
+function buildConfig(): OAuthConfig {
+  return {
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    redirectUri: process.env.REDIRECT_URI,
+    environment: process.env.INTUIT_ENVIRONMENT as 'sandbox' | 'production',
+  };
+}

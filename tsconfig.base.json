@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@composer/types": ["libs/types/src/index.ts"],
-      "@composer/testing-utilities": ["libs/testing-utilities/src/index.ts"]
+      "@composer/testing-utilities": ["libs/testing-utilities/src/index.ts"],
+      "@composer/security": ["libs/security/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

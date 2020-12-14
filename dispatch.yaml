@@ -3,8 +3,8 @@ dispatch:
   - url: 'composer-intuit.uc.r.appspot.com/'
     service: default
 
-  - url: '*/oauth/*'
-    service: oauth
+  # - url: '*/oauth/*'
+  #   service: oauth
 
-  - url: '*/webhook/*'
-    service: webhook
+  # - url: '*/webhook/*'
+  #   service: webhook

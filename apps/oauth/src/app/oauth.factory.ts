@@ -1,11 +1,11 @@
-import { IntuitConfig } from '@composer/types';
 const OAuthClient = require('intuit-oauth');
+import { OAuthConfig } from './oauth.module';
 
 /**
  * Intuit OAuth Factory + Provider
  */
 export function IntuitOAuthFactory() {
-  return (config: IntuitConfig) => {
+  return (config: OAuthConfig) => {
     const client = new OAuthClient({
       clientId: config.clientId,
       clientSecret: config.clientSecret,

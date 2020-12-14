@@ -9,5 +9,6 @@ module.exports = {
     '<rootDir>/libs/types',
     '<rootDir>/libs/testing-utilities',
     '<rootDir>/apps/dev-proxy',
+    '<rootDir>/libs/security',
   ],
 };

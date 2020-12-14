@@ -1,20 +1,47 @@
 import { Inject, Injectable } from '@nestjs/common';
+import { ClientProxy } from '@nestjs/microservices';
 import { BehaviorSubject } from 'rxjs';
 import { OAuthToken } from '@composer/types';
-import { resolve } from 'url';
+const IntuitOAuth = require('intuit-oauth');
 
 @Injectable()
 export class OauthService {
   private _tokenStream = new BehaviorSubject<OAuthToken>(null);
   tokenStream$ = this._tokenStream.asObservable();
 
-  constructor(@Inject('IntuitOAuth') private intuitOAuth: any) {}
+  constructor(
+    @Inject('IntuitOAuth') private intuitOAuth: any,
+    @Inject('TokenService') private tokenService: ClientProxy
+  ) {}
 
-  emitToken(token: OAuthToken) {
-    this._tokenStream.next(token);
+  buildAuthorizeUri(): string {
+    return this.intuitOAuth.authorizeUri({
+      scope: [IntuitOAuth.scopes.Accounting],
+      state: null,
+    });
   }
 
-  buildToken(authResponse: any) {
+  async handleRedirect(url: string) {
+    this.intuitOAuth.createToken(url).then(async (response) => {
+      await this.saveToken(this.buildToken(response));
+    });
+  }
+
+  async saveToken(token: OAuthToken) {
+    return new Promise<void>((resolve, reject) => {
+      this.tokenService
+        .send<{ status: boolean; err?: any }>('process-token', token)
+        .subscribe((response) => {
+          if (response.status) {
+            resolve();
+          } else {
+            reject(response.err);
+          }
+        });
+    });
+  }
+
+  private buildToken(authResponse: any) {
     const token: OAuthToken = {
       token_type: authResponse.token.token_type,
       access_token: authResponse.token.access_token,
@@ -36,7 +63,7 @@ export class OauthService {
         client.setToken(token);
         client.refreshUsingToken(token.refresh_token).then((authResponse) => {
           const token = this.buildToken(authResponse);
-          this.emitToken(token);
+          this.saveToken(token);
           resolve(token);
         });
       } catch (err) {
@@ -45,17 +72,9 @@ export class OauthService {
     });
   }
 
-  async revokeToken(token: OAuthToken) {
-    return new Promise<void>((resolve, reject) => {
-      try {
-        const client = this.intuitOAuth;
-        client.setToken(token);
-        client.revoke().then((authResponse) => {
-          resolve();
-        });
-      } catch (err) {
-        reject(err);
-      }
+  async disconnectApp() {
+    this.intuitOAuth.revoke().then((authResponse) => {
+      return;
     });
   }
 
