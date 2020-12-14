@@ -13,6 +13,7 @@
     "@nestjs/microservices": "7.5.4",
     "reflect-metadata": "^0.1.13",
     "rxjs": "6.6.3",
-    "redis": "3.0.2"
+    "redis": "3.0.2",
+    "dotenv": "8.2.0"
   }
 }

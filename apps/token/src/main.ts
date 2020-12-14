@@ -11,11 +11,15 @@ import { TokenModule, TokenConfig } from './app/app.module';
 const logger = new Logger('Token Main');
 
 async function bootstrap() {
+  const redisUrl = `${process.env.REDIS_URL}:6379`;
+
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
     TokenModule.register(buildTokenConfig()),
     {
       transport: Transport.REDIS,
-      options: { url: process.env.CONNECTION_URL || 'redis://localhost:6379' },
+      options: {
+        url: process.env.TOKEN_CONNECTION_URL || '//localhost:6379',
+      },
     }
   );
 
