@@ -1,5 +1,5 @@
 {
-  "name": "composer-api-client",
+  "name": "composer-token",
   "scripts": {
     "start": "node main.js"
   },

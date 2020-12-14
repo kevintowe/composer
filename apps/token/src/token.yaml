@@ -1,6 +1,6 @@
 runtime: nodejs12
 instance_class: F1
-service: realm-logic
+service: token
 
 automatic_scaling:
   max_instances: 3
