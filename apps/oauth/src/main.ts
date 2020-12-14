@@ -4,10 +4,10 @@ if (process.env.NODE_ENV !== 'production')
 
 import { NestFactory } from '@nestjs/core';
 import { Transport, MicroserviceOptions } from '@nestjs/microservices';
+import { Logger } from '@nestjs/common';
+const logger = new Logger('OAuth Main');
 
 import { OAuthModule } from './app/oauth.module';
-
-console.log(`Testing value is: ${process.env.TEST}`);
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
@@ -17,7 +17,7 @@ async function bootstrap() {
 
   const port = process.env.PORT || 3010;
   app.listen(() => {
-    console.log('OAuth Microservice is listening');
+    logger.log('OAuth Microservice is listening');
   });
 }
 
