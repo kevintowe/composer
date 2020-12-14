@@ -12,10 +12,12 @@ import { OAuthModule } from './app/oauth.module';
 async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
     OAuthModule,
-    { transport: Transport.TCP }
+    {
+      transport: Transport.REDIS,
+      options: { url: process.env.CONNECTION_URL || 'redis://localhost:6379' },
+    }
   );
 
-  const port = process.env.PORT || 3010;
   app.listen(() => {
     logger.log('OAuth Microservice is listening');
   });
